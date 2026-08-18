@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetCare - Dashboard</title>
+    <link rel="stylesheet" href="./src/index.css" />
+</head>
+
+<body class="min-h-screen bg-app-bg font-sans text-text-body">
+
+    <!-- NAVBAR -->
+    <header class="bg-card-bg border-b border-border-subtle sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+
+            <!-- Logo & Marca -->
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🐾</span>
+                <span class="font-bold text-xl text-brand-primary tracking-tight">PetCare</span>
+            </div>
+
+            <!-- Campo de Busca -->
+            <div class="flex-1 max-w-md hidden sm:block">
+                <input type="text" placeholder="Buscar pet, tutor ou serviço..."
+                    class="w-full bg-app-bg text-sm px-4 py-2 rounded-full border border-border-subtle text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-brand-primary/50" />
+            </div>
+
+            <!-- Perfil do Usuário -->
+            <div class="flex items-center gap-3">
+                <div class="text-right hidden md:block">
+                    <p class="text-sm font-semibold text-text-title">Dr. Ana Silva</p>
+                    <p class="text-xs font-normal text-text-muted">Veterinária</p>
+                </div>
+                <div
+                    class="w-10 h-10 rounded-full bg-brand-primary-container text-brand-on-primary-container font-bold flex items-center justify-center border border-brand-primary/20">
+                    AS
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Cabeçalho da Página -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <div>
+                <h1 class="text-2xl font-bold text-text-title">Visão Geral</h1>
+                <p class="text-sm font-normal text-text-muted">Acompanhe os atendimentos e rotinas de hoje</p>
+            </div>
+            <a href="Agendamento.html"
+                class="bg-brand-primary hover:bg-brand-primary-hover text-brand-on-primary px-5 py-2.5 rounded-xl font-medium shadow-sm transition-all text-sm flex items-center justify-center gap-2">
+                <span class="font-bold">+</span> Novo Agendamento
+            </a>
+        </div>
+
+        <!-- CARDS DE RESUMO (METRICAS) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+
+            <div
+                class="bg-card-bg p-5 rounded-2xl border border-border-subtle shadow-sm flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-medium text-text-muted uppercase tracking-wider">Banhos Hoje</p>
+                    <p class="text-2xl font-bold text-text-title mt-1">34</p>
+                </div>
+                <div
+                    class="w-12 h-12 rounded-xl bg-brand-primary-container text-brand-on-primary-container flex items-center justify-center text-xl">
+                    🧼
+                </div>
+            </div>
+
+            <div
+                class="bg-card-bg p-5 rounded-2xl border border-border-subtle shadow-sm flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-medium text-text-muted uppercase tracking-wider">Consultas</p>
+                    <p class="text-2xl font-bold text-text-title mt-1">12</p>
+                </div>
+                <div
+                    class="w-12 h-12 rounded-xl bg-cyan-100 text-brand-secondary flex items-center justify-center text-xl">
+                    🩺
+                </div>
+            </div>
+
+            <div
+                class="bg-card-bg p-5 rounded-2xl border border-border-subtle shadow-sm flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-medium text-text-muted uppercase tracking-wider">Vacinações</p>
+                    <p class="text-2xl font-bold text-text-title mt-1">8</p>
+                </div>
+                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl">
+                    💉
+                </div>
+            </div>
+
+            <div
+                class="bg-card-bg p-5 rounded-2xl border border-border-subtle shadow-sm flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-medium text-text-muted uppercase tracking-wider">Receita Estimada</p>
+                    <p class="text-2xl font-bold text-text-title mt-1">R$ 1.850</p>
+                </div>
+                <div
+                    class="w-12 h-12 rounded-xl bg-status-success-container text-status-on-success-container flex items-center justify-center text-xl">
+                    💰
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TABELA DE ATENDIMENTOS DO DIA -->
+        <div class="bg-card-bg rounded-2xl border border-border-subtle shadow-sm overflow-hidden">
+            <div class="p-5 border-b border-border-subtle">
+                <h2 class="font-bold text-text-title text-base">Atendimentos do Dia</h2>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm text-text-body">
+                    <thead
+                        class="bg-app-bg text-xs text-text-muted font-semibold uppercase tracking-wider border-b border-border-subtle">
+                        <tr>
+                            <th class="py-3.5 px-5">Pet</th>
+                            <th class="py-3.5 px-5">Tutor</th>
+                            <th class="py-3.5 px-5">Serviço</th>
+                            <th class="py-3.5 px-5">Horário</th>
+                            <th class="py-3.5 px-5">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-border-subtle">
+
+                        <tr class="hover:bg-app-bg/60 transition-colors">
+                            <td class="py-4 px-5 font-semibold text-text-title flex items-center gap-3">
+                                <span
+                                    class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-sm">🐶</span>
+                                Thor
+                            </td>
+                            <td class="py-4 px-5">Carlos Eduardo</td>
+                            <td class="py-4 px-5">Banho & Tosa</td>
+                            <td class="py-4 px-5 font-medium">14:30</td>
+                            <td class="py-4 px-5">
+                                <span
+                                    class="bg-brand-primary-container text-brand-on-primary-container px-3 py-1 rounded-full text-xs font-medium">
+                                    Agendado
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-app-bg/60 transition-colors">
+                            <td class="py-4 px-5 font-semibold text-text-title flex items-center gap-3">
+                                <span
+                                    class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-sm">🐱</span>
+                                Luna
+                            </td>
+                            <td class="py-4 px-5">Mariana Costa</td>
+                            <td class="py-4 px-5">Consulta Veterinária</td>
+                            <td class="py-4 px-5 font-medium">15:15</td>
+                            <td class="py-4 px-5">
+                                <span
+                                    class="bg-status-warning-container text-status-on-warning-container px-3 py-1 rounded-full text-xs font-medium">
+                                    Em Andamento
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-app-bg/60 transition-colors">
+                            <td class="py-4 px-5 font-semibold text-text-title flex items-center gap-3">
+                                <span
+                                    class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-sm">🦮</span>
+                                Mel
+                            </td>
+                            <td class="py-4 px-5">João Pedro</td>
+                            <td class="py-4 px-5">Vacinação V10</td>
+                            <td class="py-4 px-5 font-medium">16:00</td>
+                            <td class="py-4 px-5">
+                                <span
+                                    class="bg-status-success-container text-status-on-success-container px-3 py-1 rounded-full text-xs font-medium">
+                                    Concluído
+                                </span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="max-w-7xl mx-auto px-4 py-6 text-center text-xs text-text-muted border-t border-border-subtle mt-8">
+        <p>Desenvolvido por <strong class="text-text-body font-semibold">Laysson Santos</strong> — Disciplina de
+            Desenvolvimento Web 2</p>
+    </footer>
+
+</body>
+
+</html>

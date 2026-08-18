@@ -1,16 +1,49 @@
-# React + Vite
+# 🐾 PetCare - Sistema de Gestão de PetShop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Aluno:** Laysson Santos  
+**RA:** 800349 
+  
 
-Currently, two official plugins are available:
+---
+> Projeto desenvolvido para a disciplina de **Desenvolvimento Web 2**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O **PetCare** é um aplicativo web para gerenciamento rápido e agendamento de serviços em petshops e clínicas veterinárias. O projeto foi desenvolvido em duas etapas principais:
+- **Fase 1:** Construção das telas e layout responsivo utilizando HTML + Tailwind CSS.
+- **Fase 2:** Implementação de lógica de estado em React, roteamento, consumo de API/Back-end simulado e uso de APIs do navegador (Web Notifications e LocalStorage).
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📱 Telas do Aplicativo
+
+1. **Dashboard de Atendimentos (Home):**
+   - Cards de métricas diárias (Banhos, Consultas, Vacinações e Faturamento simulado).
+   - Tabela/Lista de agendamentos com filtros e status visuais (Agendado, Em Andamento, Concluído).
+2. **Formulário de Agendamento (Novo Serviço):**
+   - Entrada de dados do Pet e do Tutor.
+   - Seleção interativa de serviços e grade de horários disponíveis.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [ESLint](https://eslint.org/)
+- API REST Simulada (`json-server` / `MockAPI`)
+- Web Notification API + LocalStorage API
+
+---
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+Certifique-se de ter o **Node.js** (v18 ou superior) instalado em sua máquina.
+
+### Passo a Passo
+
+1. **Clonar o repositório:**
+   ```bash
+   git clone [https://github.com/seu-usuario/petcare-app.git](https://github.com/seu-usuario/petcare-app.git)
+   cd petcare-app

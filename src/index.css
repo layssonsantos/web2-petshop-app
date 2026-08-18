@@ -1,111 +1,66 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+/* 1. Importação das fontes SEMPRE no topo do arquivo CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+@import "tailwindcss";
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  /* 2. Definindo Poppins como a fonte principal de texto (font-sans) */
+  --font-sans: 'Poppins', sans-serif;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* --- Mapeamento de Pesos (Font Weights) --- */
+  /* font-normal    = 400 (Texto corrido, parágrafos) */
+  /* font-medium    = 500 (Labels, horários, botões) */
+  /* font-semibold  = 600 (Nomes de destaques, subtítulos de cards) */
+  /* font-bold      = 700 (Títulos de páginas, valores de métricas) */
+
+  /* --- Mapeamento de Tamanhos (Font Sizes Padrão Tailwind) --- */
+  /* text-xs   = 12px | line-height: 16px (Badges, legendas, rodapé) */
+  /* text-sm   = 14px | line-height: 20px (Textos de tabela, busca, subtextos) */
+  /* text-base = 16px | line-height: 24px (Texto padrão, títulos de tabela) */
+  /* text-lg   = 18px | line-height: 28px (Subtítulos de seção) */
+  /* text-xl   = 20px | line-height: 28px (Logo, títulos de modais/cards) */
+  /* text-2xl  = 24px | line-height: 32px (Título principal da página, métricas) */
+
+  /* --- Cor Primária & Pareamentos (Primary / On-Primary) --- */
+  --color-brand-primary: #6C5CE7;                /* Use: bg-brand-primary */
+  --color-brand-on-primary: #FFFFFF;             /* Use: text-brand-on-primary (sobre o fundo primário) */
+  --color-brand-primary-hover: #5A4AD1;          /* Use: hover:bg-brand-primary-hover */
+  --color-brand-primary-container: #EEEEFC;       /* Use: bg-brand-primary-container (fundo de badges/ícones) */
+  --color-brand-on-primary-container: #4838B7;    /* Use: text-brand-on-primary-container (texto sobre o container) */
+
+  /* --- Cor Secundária (Secondary) --- */
+  --color-brand-secondary: #00CEC9;              /* Use: bg-brand-secondary ou text-brand-secondary */
+  --color-brand-on-secondary: #000000;            /* Use: text-brand-on-secondary */
+
+  /* --- Status Semânticos & Containers --- */
+  --color-status-success: #00B894;               /* Use: text-status-success */
+  --color-status-success-container: #E6F8F4;     /* Use: bg-status-success-container */
+  --color-status-on-success-container: #00604D;   /* Use: text-status-on-success-container */
+
+  --color-status-warning: #D97706;               /* Tom ajustado para legibilidade e contraste WCAG */
+  --color-status-warning-container: #FEF3C7;     /* Use: bg-status-warning-container */
+  --color-status-on-warning-container: #78350F;   /* Use: text-status-on-warning-container */
+
+  --color-status-danger: #FF7675;                /* Use: text-status-danger */
+  --color-status-danger-container: #FFEEEE;      /* Use: bg-status-danger-container */
+  --color-status-on-danger-container: #C0392B;    /* Use: text-status-on-danger-container */
+
+  /* --- Superfícies e Fundo (Surface & Background) --- */
+  --color-app-bg: #F8FAFC;                       /* Use: bg-app-bg (fundo da página) */
+  --color-card-bg: #FFFFFF;                      /* Use: bg-card-bg (superfície de cards e modais) */
+  --color-border-subtle: #E2E8F0;                /* Use: border-border-subtle (divisores e bordas leves) */
+
+  /* --- Tipografia Semântica (On-Surface Colors) --- */
+  --color-text-title: #0F172A;                   /* Use: text-text-title (títulos principais) */
+  --color-text-body: #334155;                    /* Use: text-text-body (texto corrido) */
+  --color-text-muted: #64748B;                   /* Use: text-text-muted (legendas, subtítulos e ícones) */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
+/* Reset básico para garantir altura e fonte padrão em toda a aplicação */
 body {
   margin: 0;
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  font-family: var(--font-sans);
+  background-color: var(--color-app-bg);
+  color: var(--color-text-body);
+  min-height: 100vh;
 }

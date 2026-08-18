@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PetCare - Novo Agendamento</title>
+    <link rel="stylesheet" href="./src/index.css" />
+</head>
+
+<body class="min-h-screen bg-app-bg font-sans text-text-body">
+
+    <!-- NAVBAR -->
+    <header class="bg-card-bg border-b border-border-subtle sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl">🐾</span>
+                <span class="font-bold text-xl text-brand-primary tracking-tight">PetCare</span>
+            </a>
+
+            <div class="flex items-center gap-3">
+                <div class="text-right hidden md:block">
+                    <p class="text-sm font-semibold text-text-title">Dr. Ana Silva</p>
+                    <p class="text-xs font-normal text-text-muted">Veterinária</p>
+                </div>
+                <div
+                    class="w-10 h-10 rounded-full bg-brand-primary-container text-brand-on-primary-container font-bold flex items-center justify-center border border-brand-primary/20">
+                    AS
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+
+        <!-- Voltar e Título -->
+        <div class="mb-6">
+            <a href="index.html"
+                class="text-xs font-medium text-text-muted hover:text-brand-primary flex items-center gap-1 mb-2 transition-colors">
+                ← Voltar para o Dashboard
+            </a>
+            <h1 class="text-2xl font-bold text-text-title">Novo Agendamento</h1>
+            <p class="text-sm font-normal text-text-muted">Preencha os dados do pet e do atendimento</p>
+        </div>
+
+        <!-- CARTÃO DO FORMULÁRIO -->
+        <div class="bg-card-bg p-6 sm:p-8 rounded-2xl border border-border-subtle shadow-sm">
+            <form action="index.html" method="GET" class="space-y-6">
+
+                <!-- SEÇÃO 1: DADOS DO PET E TUTOR -->
+                <div>
+                    <h2 class="text-base font-semibold text-text-title border-b border-border-subtle pb-2 mb-4">
+                        Informações do Cliente
+                    </h2>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Nome do Pet -->
+                        <div>
+                            <label for="petName" class="block text-xs font-medium text-text-title mb-1.5">
+                                Nome do Pet <span class="text-status-danger">*</span>
+                            </label>
+                            <input type="text" id="petName" name="petName" required placeholder="Ex: Thor, Luna..."
+                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all" />
+                        </div>
+
+                        <!-- Especie/Tipo -->
+                        <div>
+                            <label for="petType" class="block text-xs font-medium text-text-title mb-1.5">
+                                Espécie <span class="text-status-danger">*</span>
+                            </label>
+                            <select id="petType" name="petType" required
+                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all">
+                                <option value="" disabled selected>Selecione a espécie...</option>
+                                <option value="dog">Cão 🐶</option>
+                                <option value="cat">Gato 🐱</option>
+                                <option value="bird">Ave 🦜</option>
+                                <option value="other">Outro 🐾</option>
+                            </select>
+                        </div>
+
+                        <!-- Nome do Tutor -->
+                        <div class="sm:col-span-2">
+                            <label for="tutorName" class="block text-xs font-medium text-text-title mb-1.5">
+                                Nome do Tutor <span class="text-status-danger">*</span>
+                            </label>
+                            <input type="text" id="tutorName" name="tutorName" required placeholder="Ex: Carlos Eduardo"
+                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SEÇÃO 2: DETALHES DO SERVIÇO -->
+                <div>
+                    <h2 class="text-base font-semibold text-text-title border-b border-border-subtle pb-2 mb-4">
+                        Detalhes do Serviço
+                    </h2>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <!-- Tipo de Serviço -->
+                        <div class="sm:col-span-3">
+                            <label for="serviceType" class="block text-xs font-medium text-text-title mb-1.5">
+                                Serviço Desejado <span class="text-status-danger">*</span>
+                            </label>
+                            <select id="serviceType" name="serviceType" required
+                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all">
+                                <option value="" disabled selected>Selecione o serviço...</option>
+                                <option value="grooming">Banho & Tosa 🧼</option>
+                                <option value="consultation">Consulta Veterinária 🩺</option>
+                                <option value="vaccine">Vacinação 💉</option>
+                            </select>
+                        </div>
+
+                        <!-- Data -->
+                        <div>
+                            <label for="date" class="block text-xs font-medium text-text-title mb-1.5">
+                                Data <span class="text-status-danger">*</span>
+                            </label>
+                            <input type="date" id="date" name="date" required
+                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all" />
+                        </div>
+
+                        <!-- Horário -->
+                        <div>
+                            <label for="time" class="block text-xs font-medium text-text-title mb-1.5">
+                                Horário <span class="text-status-danger">*</span>
+                            </label>
+                            <input type="time" id="time" name="time" required
+                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all" />
+                        </div>
+
+                        <!-- Status Inicial -->
+                        <div>
+                            <label for="status" class="block text-xs font-medium text-text-title mb-1.5">
+                                Status Inicial
+                            </label>
+                            <select id="status" name="status"
+                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all">
+                                <option value="scheduled" selected>Agendado</option>
+                                <option value="in_progress">Em Andamento</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Observações -->
+                <div>
+                    <label for="notes" class="block text-xs font-medium text-text-title mb-1.5">
+                        Observações Médicas / Especiais (Opcional)
+                    </label>
+                    <textarea id="notes" name="notes" rows="3"
+                        placeholder="Ex: Alérgico a sabonete com perfume, animal arredio..."
+                        class="w-full bg-app-bg text-sm p-4 rounded-xl border border-border-subtle text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all resize-none"></textarea>
+                </div>
+
+                <!-- BOTÕES DE AÇÃO -->
+                <div class="flex items-center justify-end gap-3 pt-4 border-t border-border-subtle">
+                    <a href="index.html"
+                        class="px-5 py-2.5 rounded-xl text-sm font-medium text-text-muted hover:text-text-title hover:bg-app-bg transition-all">
+                        Cancelar
+                    </a>
+                    <button type="submit"
+                        class="bg-brand-primary hover:bg-brand-primary-hover text-brand-on-primary px-6 py-2.5 rounded-xl text-sm font-medium shadow-sm transition-all flex items-center gap-2 cursor-pointer">
+                        Salvar Agendamento
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
