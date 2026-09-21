@@ -1,11 +1,33 @@
-/* 1. Importação da fonte Nunito (Google Fonts) */
+/* Importação da fonte Nunito (Google Fonts) */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  /* 2. Fonte Principal da Identidade Visual */
+  /* 1. Fonte Principal da Identidade Visual */
   --font-sans: 'Nunito', sans-serif;
+
+  /* 2. Escala Tipográfica do M3 (Tamanho / Line-Height) */
+  --text-headline-sm: 24px;
+  --text-headline-sm--line-height: 32px;
+
+  --text-title-lg: 22px;
+  --text-title-lg--line-height: 28px;
+
+  --text-title-md: 16px;
+  --text-title-md--line-height: 24px;
+
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 24px;
+
+  --text-body-md: 14px;
+  --text-body-md--line-height: 20px;
+
+  --text-label-lg: 14px;
+  --text-label-lg--line-height: 20px;
+
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 16px;
 
   /* --- Papéis de Cores M3 (Material Design 3) --- */
   
