@@ -8,24 +8,39 @@
   --font-sans: 'Nunito', sans-serif;
 
   /* 2. Escala Tipográfica do M3 (Tamanho / Line-Height) */
+  
+  /* Headline Small — 24/32px | Bold 700 */
+  /* Uso: Título principal das páginas e valores das métricas diárias */
   --text-headline-sm: 24px;
   --text-headline-sm--line-height: 32px;
 
+  /* Title Large — 22/28px | SemiBold 600 */
+  /* Uso: Títulos de seções maiores (ex: "Novo agendamento") */
   --text-title-lg: 22px;
   --text-title-lg--line-height: 28px;
 
+  /* Title Medium — 16/24px | Bold 700 */
+  /* Uso: Títulos dos grupos do formulário (ex: "Informações do cliente") */
   --text-title-md: 16px;
   --text-title-md--line-height: 24px;
 
+  /* Body Large — 16/24px | Regular 400 */
+  /* Uso: Texto digitado nos campos de input e textareas */
   --text-body-lg: 16px;
   --text-body-lg--line-height: 24px;
 
+  /* Body Medium — 14/20px | Regular 400 */
+  /* Uso: Linhas da tabela de atendimentos e textos de apoio */
   --text-body-md: 14px;
   --text-body-md--line-height: 20px;
 
+  /* Label Large — 14/20px | SemiBold 600 */
+  /* Uso: Texto interno dos botões principais e rótulos dos campos */
   --text-label-lg: 14px;
   --text-label-lg--line-height: 20px;
 
+  /* Label Small — 12/16px | Bold 700 */
+  /* Uso: Badges de status (Agendado, Concluído) e cabeçalhos da tabela */
   --text-label-sm: 12px;
   --text-label-sm--line-height: 16px;
 
