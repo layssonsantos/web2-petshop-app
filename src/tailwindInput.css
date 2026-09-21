@@ -1,0 +1,57 @@
+/* 1. Importação da fonte Nunito (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* 2. Fonte Principal da Identidade Visual */
+  --font-sans: 'Nunito', sans-serif;
+
+  /* --- Papéis de Cores M3 (Material Design 3) --- */
+  
+  /* Primary (Cor Principal & Foco) */
+  --color-primary: #00696B;                   /* Use: bg-primary, text-primary, border-primary */
+  --color-on-primary: #FFFFFF;                /* Use: text-on-primary (sobre o fundo primário) */
+  --color-primary-container: #9CF1F2;         /* Use: bg-primary-container (card de banhos e status Agendado) */
+  --color-on-primary-container: #004F51;      /* Use: text-on-primary-container */
+
+  /* Secondary (Chips e Botões Tonais) */
+  --color-secondary-container: #9CF1F1;       /* Use: bg-secondary-container (chips selecionados) */
+  --color-on-secondary-container: #004F50;    /* Use: text-on-secondary-container */
+
+  /* Tertiary (Consultas, Avatares e Em Andamento) */
+  --color-tertiary-container: #FFDCC6;        /* Use: bg-tertiary-container (card consultas / observações) */
+  --color-on-tertiary-container: #6D390C;     /* Use: text-on-tertiary-container (status Em Andamento) */
+
+  /* Status Semântico Personalizado: Concluído */
+  --color-success-container: #2E9E5B;         /* Use: bg-success-container (badge Concluído) */
+  --color-on-success-container: #15512C;      /* Use: text-on-success-container */
+
+  /* Error (Validações e Alertas) */
+  --color-error: #904A43;                     /* Use: text-error, border-error */
+
+  /* Superfícies e Containers */
+  --color-surface: #F4FBFA;                   /* Use: bg-surface (fundo das páginas) */
+  --color-surface-container-lowest: #FFFFFF;  /* Use: bg-surface-container-lowest (cards e topbar) */
+  --color-surface-container-highest: #DDE4E3; /* Use: bg-surface-container-highest (receita / avatares) */
+
+  /* Tipografia Semântica & Bordas */
+  --color-on-surface: #161D1D;                /* Use: text-on-surface (texto principal) */
+  --color-on-surface-variant: #3F4949;        /* Use: text-on-surface-variant (textos de apoio) */
+  --color-outline-variant: #BEC8C8;           /* Use: border-outline-variant (bordas de cards e divisórias) */
+
+  /* --- Cantos Arredondados (Escala M3) --- */
+  --radius-sm: 8px;                           /* Use: rounded-sm (campos, chips, badges) */
+  --radius-md: 12px;                          /* Use: rounded-md (ícones de métrica) */
+  --radius-lg: 16px;                          /* Use: rounded-lg (cards de conteúdo) */
+  --radius-full: 9999px;                      /* Use: rounded-full (botões pill) */
+}
+
+/* Reset básico para aplicação */
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  min-height: 100vh;
+}
