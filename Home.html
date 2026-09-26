@@ -8,32 +8,45 @@
     <link rel="stylesheet" href="./src/tailwindInput.css" />
 </head>
 
-<body class="min-h-screen bg-app-bg font-sans text-text-body">
+<body class="min-h-screen bg-surface font-sans text-on-surface">
 
     <!-- NAVBAR -->
-    <header class="bg-card-bg border-b border-border-subtle sticky top-0 z-10">
+    <header class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
 
-            <!-- Logo & Marca -->
-            <div class="flex items-center gap-2">
-                <span class="text-2xl">🐾</span>
-                <span class="font-bold text-xl text-brand-primary tracking-tight">PetCare</span>
-            </div>
-
-            <!-- Campo de Busca -->
-            <div class="flex-1 max-w-md hidden sm:block">
-                <input type="text" placeholder="Buscar pet, tutor ou serviço..."
-                    class="w-full bg-app-bg text-sm px-4 py-2 rounded-full border border-border-subtle text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-brand-primary/50" />
-            </div>
-
-            <!-- Perfil do Usuário -->
+            <!-- 1. Logo e Nome do App (Visível em todos os tamanhos) -->
             <div class="flex items-center gap-3">
-                <div class="text-right hidden md:block">
-                    <p class="text-sm font-semibold text-text-title">Dr. Ana Silva</p>
-                    <p class="text-xs font-normal text-text-muted">Veterinária</p>
+                <!-- Ícone de Menu Hambúrguer (Mobile) - Opcional conforme especificação -->
+                <button class="sm:hidden text-on-surface-variant hover:text-on-surface p-1">
+                    <span class="text-xl">☰</span>
+                </button>
+
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🐾</span>
+                    <span class="text-title-lg font-bold text-primary tracking-tight">PetCare</span>
                 </div>
+            </div>
+
+            <!-- 2. Campo de Busca (Escondido no celular < 640px | Visível a partir de sm:) -->
+            <div class="flex-1 max-w-md hidden sm:block">
+                <div class="relative flex items-center">
+                    <span class="absolute left-3 text-on-surface-variant text-sm">🔍</span>
+                    <input type="text" placeholder="Buscar pet, tutor ou serviço..."
+                        class="w-full bg-surface text-body-md pl-9 pr-4 py-2 rounded-full border border-outline-variant text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" />
+                </div>
+            </div>
+
+            <!-- 3. Área de Perfil -->
+            <div class="flex items-center gap-3">
+                <!-- Nome e Cargo: Oculto no Celular e Tablet (< 1024px) | Visível apenas no Desktop (lg:) -->
+                <div class="text-right hidden lg:block">
+                    <p class="text-label-lg font-semibold text-on-surface">Dr. Ana Silva</p>
+                    <p class="text-label-sm font-normal text-on-surface-variant">Veterinária</p>
+                </div>
+
+                <!-- Avatar: Visível em TODOS os dispositivos -->
                 <div
-                    class="w-10 h-10 rounded-full bg-brand-primary-container text-brand-on-primary-container font-bold flex items-center justify-center border border-brand-primary/20">
+                    class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container text-label-lg font-bold flex items-center justify-center border border-outline-variant/30 shrink-0">
                     AS
                 </div>
             </div>
@@ -47,134 +60,182 @@
         <!-- Cabeçalho da Página -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
-                <h1 class="text-2xl font-bold text-text-title">Visão Geral</h1>
-                <p class="text-sm font-normal text-text-muted">Acompanhe os atendimentos e rotinas de hoje</p>
+                <h1 class="text-headline-sm font-bold text-on-surface">Atendimentos de hoje</h1>
+                <p class="text-body-md font-normal text-on-surface-variant mt-1">(Data atual)</p>
             </div>
+            <!-- Botão Responsivo (FAB no celular | Normal no desktop) -->
             <a href="Agendamento.html"
-                class="bg-brand-primary hover:bg-brand-primary-hover text-brand-on-primary px-5 py-2.5 rounded-xl font-medium shadow-sm transition-all text-sm flex items-center justify-center gap-2">
-                <span class="font-bold">+</span> Novo Agendamento
+                class="fixed bottom-6 right-6 sm:static z-50 bg-primary hover:bg-primary/90 text-on-primary px-4 py-4 sm:px-5 sm:py-2.5 rounded-2xl sm:rounded-full text-label-lg font-semibold shadow-lg sm:shadow-sm transition-all duration-200 flex items-center justify-center gap-2">
+                <span class="text-2xl sm:text-xl font-bold leading-none">+</span>
+                <span class="hidden sm:inline">Novo Agendamento</span>
             </a>
         </div>
 
-        <!-- CARDS DE RESUMO (METRICAS) -->
+        <!-- CARDS DE MÉTRICAS (RESPONSIVIDADE: 1 col no mobile, 2 col no tablet, 4 col no desktop) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
 
+            <!-- Card 1: Banhos Hoje -->
             <div
-                class="bg-card-bg p-5 rounded-2xl border border-border-subtle shadow-sm flex items-center justify-between">
-                <div>
-                    <p class="text-xs font-medium text-text-muted uppercase tracking-wider">Banhos Hoje</p>
-                    <p class="text-2xl font-bold text-text-title mt-1">34</p>
-                </div>
+                class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant shadow-sm flex items-center gap-4">
+                <!-- Ícone / Imagem à esquerda -->
                 <div
-                    class="w-12 h-12 rounded-xl bg-brand-primary-container text-brand-on-primary-container flex items-center justify-center text-xl">
+                    class="w-12 h-12 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center text-xl shrink-0">
                     🧼
                 </div>
+                <!-- Rótulo + Número ao lado da imagem -->
+                <div class="flex flex-col">
+                    <p class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Banhos Hoje</p>
+                    <p class="text-headline-sm font-bold text-on-surface">34</p>
+                </div>
             </div>
 
+            <!-- Card 2: Consultas -->
             <div
-                class="bg-card-bg p-5 rounded-2xl border border-border-subtle shadow-sm flex items-center justify-between">
-                <div>
-                    <p class="text-xs font-medium text-text-muted uppercase tracking-wider">Consultas</p>
-                    <p class="text-2xl font-bold text-text-title mt-1">12</p>
-                </div>
+                class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant shadow-sm flex items-center gap-4">
+                <!-- Ícone / Imagem à esquerda -->
                 <div
-                    class="w-12 h-12 rounded-xl bg-cyan-100 text-brand-secondary flex items-center justify-center text-xl">
+                    class="w-12 h-12 rounded-md bg-secondary-container text-on-secondary-container flex items-center justify-center text-xl shrink-0">
                     🩺
                 </div>
+                <!-- Rótulo + Número ao lado da imagem -->
+                <div class="flex flex-col">
+                    <p class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Consultas</p>
+                    <p class="text-headline-sm font-bold text-on-surface">12</p>
+                </div>
             </div>
 
+            <!-- Card 3: Vacinações -->
             <div
-                class="bg-card-bg p-5 rounded-2xl border border-border-subtle shadow-sm flex items-center justify-between">
-                <div>
-                    <p class="text-xs font-medium text-text-muted uppercase tracking-wider">Vacinações</p>
-                    <p class="text-2xl font-bold text-text-title mt-1">8</p>
-                </div>
-                <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-xl">
+                class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant shadow-sm flex items-center gap-4">
+                <!-- Ícone / Imagem à esquerda -->
+                <div
+                    class="w-12 h-12 rounded-md bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-xl shrink-0">
                     💉
                 </div>
+                <!-- Rótulo + Número ao lado da imagem -->
+                <div class="flex flex-col">
+                    <p class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Vacinações</p>
+                    <p class="text-headline-sm font-bold text-on-surface">8</p>
+                </div>
             </div>
 
+            <!-- Card 4: Receita Estimada -->
             <div
-                class="bg-card-bg p-5 rounded-2xl border border-border-subtle shadow-sm flex items-center justify-between">
-                <div>
-                    <p class="text-xs font-medium text-text-muted uppercase tracking-wider">Receita Estimada</p>
-                    <p class="text-2xl font-bold text-text-title mt-1">R$ 1.850</p>
-                </div>
+                class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant shadow-sm flex items-center gap-4">
+                <!-- Ícone / Imagem à esquerda -->
                 <div
-                    class="w-12 h-12 rounded-xl bg-status-success-container text-status-on-success-container flex items-center justify-center text-xl">
+                    class="w-12 h-12 rounded-md bg-success-container text-on-success-container flex items-center justify-center text-xl shrink-0">
                     💰
+                </div>
+                <!-- Rótulo + Número ao lado da imagem -->
+                <div class="flex flex-col">
+                    <p class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Receita Estimada
+                    </p>
+                    <p class="text-headline-sm font-bold text-on-surface">R$ 1.850</p>
                 </div>
             </div>
 
         </div>
 
-        <!-- TABELA DE ATENDIMENTOS DO DIA -->
-        <div class="bg-card-bg rounded-2xl border border-border-subtle shadow-sm overflow-hidden">
-            <div class="p-5 border-b border-border-subtle">
-                <h2 class="font-bold text-text-title text-base">Atendimentos do Dia</h2>
-            </div>
+        <!-- CONTAINER DA TABELA (CARD) -->
+        <div
+            class="bg-surface-container-lowest border border-outline-variant rounded-lg shadow-sm overflow-hidden mb-8">
 
-            <div class="overflow-x-auto">
-                <table class="w-full text-left text-sm text-text-body">
-                    <thead
-                        class="bg-app-bg text-xs text-text-muted font-semibold uppercase tracking-wider border-b border-border-subtle">
+            <!-- Tabela Responsiva com Scroll Lateral apenas no Mobile -->
+            <div class="overflow-x-auto w-full">
+                <table class="w-full text-left min-w-150">
+                    <!-- Sequência: Pet, Tutor, Serviço, Horário, Status -->
+                    <thead class="bg-surface-container-low border-b border-outline-variant">
                         <tr>
-                            <th class="py-3.5 px-5">Pet</th>
-                            <th class="py-3.5 px-5">Tutor</th>
-                            <th class="py-3.5 px-5">Serviço</th>
-                            <th class="py-3.5 px-5">Horário</th>
-                            <th class="py-3.5 px-5">Status</th>
+                            <th
+                                class="px-5 py-3.5 text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">
+                                Pet</th>
+                            <th
+                                class="px-5 py-3.5 text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">
+                                Tutor</th>
+                            <th
+                                class="px-5 py-3.5 text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">
+                                Serviço</th>
+                            <th
+                                class="px-5 py-3.5 text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">
+                                Horário</th>
+                            <th
+                                class="px-5 py-3.5 text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">
+                                Status</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-border-subtle">
 
-                        <tr class="hover:bg-app-bg/60 transition-colors">
-                            <td class="py-4 px-5 font-semibold text-text-title flex items-center gap-3">
-                                <span
-                                    class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-sm">🐶</span>
-                                Thor
+                    <!-- Corpo da Tabela -->
+                    <tbody class="divide-y divide-outline-variant">
+
+                        <!-- Linha 1: Thor (Agendado) -->
+                        <tr class="hover:bg-surface-container-low/50 transition-colors">
+                            <td class="px-5 py-4 text-body-md font-bold text-on-surface">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-9 h-9 rounded-full bg-surface-container-high text-on-surface-variant text-label-md font-bold flex items-center justify-center shrink-0">
+                                        Th
+                                    </div>
+                                    <span>Thor <span
+                                            class="text-label-sm font-normal text-on-surface-variant">(Cão)</span></span>
+                                </div>
                             </td>
-                            <td class="py-4 px-5">Carlos Eduardo</td>
-                            <td class="py-4 px-5">Banho & Tosa</td>
-                            <td class="py-4 px-5 font-medium">14:30</td>
-                            <td class="py-4 px-5">
+                            <td class="px-5 py-4 text-body-md font-normal text-on-surface">Carlos Eduardo</td>
+                            <td class="px-5 py-4 text-body-md font-normal text-on-surface">Banho & Tosa</td>
+                            <td class="px-5 py-4 text-body-md font-semibold text-on-surface whitespace-nowrap">14:30
+                            </td>
+                            <td class="px-5 py-4">
                                 <span
-                                    class="bg-brand-primary-container text-brand-on-primary-container px-3 py-1 rounded-full text-xs font-medium">
-                                    Agendado
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-bold bg-primary-container text-on-primary-container whitespace-nowrap">
+                                    AGENDADO
                                 </span>
                             </td>
                         </tr>
 
-                        <tr class="hover:bg-app-bg/60 transition-colors">
-                            <td class="py-4 px-5 font-semibold text-text-title flex items-center gap-3">
-                                <span
-                                    class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-sm">🐱</span>
-                                Luna
+                        <!-- Linha 2: Luna (Em Andamento) -->
+                        <tr class="hover:bg-surface-container-low/50 transition-colors">
+                            <td class="px-5 py-4 text-body-md font-bold text-on-surface">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-9 h-9 rounded-full bg-surface-container-high text-on-surface-variant text-label-md font-bold flex items-center justify-center shrink-0">
+                                        Lu
+                                    </div>
+                                    <span>Luna <span
+                                            class="text-label-sm font-normal text-on-surface-variant">(Gato)</span></span>
+                                </div>
                             </td>
-                            <td class="py-4 px-5">Mariana Costa</td>
-                            <td class="py-4 px-5">Consulta Veterinária</td>
-                            <td class="py-4 px-5 font-medium">15:15</td>
-                            <td class="py-4 px-5">
+                            <td class="px-5 py-4 text-body-md font-normal text-on-surface">Mariana Costa</td>
+                            <td class="px-5 py-4 text-body-md font-normal text-on-surface">Consulta Veterinária</td>
+                            <td class="px-5 py-4 text-body-md font-semibold text-on-surface whitespace-nowrap">15:15
+                            </td>
+                            <td class="px-5 py-4">
                                 <span
-                                    class="bg-status-warning-container text-status-on-warning-container px-3 py-1 rounded-full text-xs font-medium">
-                                    Em Andamento
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-bold bg-tertiary-container text-on-tertiary-container whitespace-nowrap">
+                                    EM ANDAMENTO
                                 </span>
                             </td>
                         </tr>
 
-                        <tr class="hover:bg-app-bg/60 transition-colors">
-                            <td class="py-4 px-5 font-semibold text-text-title flex items-center gap-3">
-                                <span
-                                    class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-sm">🦮</span>
-                                Mel
+                        <!-- Linha 3: Mel (Concluído) -->
+                        <tr class="hover:bg-surface-container-low/50 transition-colors">
+                            <td class="px-5 py-4 text-body-md font-bold text-on-surface">
+                                <div class="flex items-center gap-3">
+                                    <div
+                                        class="w-9 h-9 rounded-full bg-surface-container-high text-on-surface-variant text-label-md font-bold flex items-center justify-center shrink-0">
+                                        Me
+                                    </div>
+                                    <span>Mel <span
+                                            class="text-label-sm font-normal text-on-surface-variant">(Cão)</span></span>
+                                </div>
                             </td>
-                            <td class="py-4 px-5">João Pedro</td>
-                            <td class="py-4 px-5">Vacinação V10</td>
-                            <td class="py-4 px-5 font-medium">16:00</td>
-                            <td class="py-4 px-5">
+                            <td class="px-5 py-4 text-body-md font-normal text-on-surface">João Pedro</td>
+                            <td class="px-5 py-4 text-body-md font-normal text-on-surface">Vacinação V10</td>
+                            <td class="px-5 py-4 text-body-md font-semibold text-on-surface whitespace-nowrap">16:00
+                            </td>
+                            <td class="px-5 py-4">
                                 <span
-                                    class="bg-status-success-container text-status-on-success-container px-3 py-1 rounded-full text-xs font-medium">
-                                    Concluído
+                                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-bold bg-success-container text-on-success-container whitespace-nowrap">
+                                    CONCLUÍDO
                                 </span>
                             </td>
                         </tr>
@@ -182,6 +243,7 @@
                     </tbody>
                 </table>
             </div>
+
         </div>
 
     </main>
