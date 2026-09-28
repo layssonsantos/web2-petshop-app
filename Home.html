@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PetCare - Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./src/tailwindInput.css" />
 </head>
 
@@ -16,15 +17,19 @@
 
             <!-- 1. Logo e Nome do App (Visível em todos os tamanhos) -->
             <div class="flex items-center gap-3">
-                <!-- Ícone de Menu Hambúrguer (Mobile) - Opcional conforme especificação -->
-                <button class="sm:hidden text-on-surface-variant hover:text-on-surface p-1">
-                    <span class="text-xl">☰</span>
+                <!-- Ícone de Menu Hambúrguer (Mobile) -->
+                <button type="button" class="sm:hidden text-primary flex items-center justify-center p-1 -ml-1">
+                    <span class="material-icons text-2xl!">menu</span>
                 </button>
 
-                <div class="flex items-center gap-2">
-                    <span class="text-2xl">🐾</span>
+                <!-- Logo com Link para Home -->
+                <a href="Home.html" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
+                    <span
+                        class="w-9 h-9 rounded-md bg-primary text-on-primary flex items-center justify-center shrink-0">
+                        <span class="material-icons text-xl!">pets</span>
+                    </span>
                     <span class="text-title-lg font-bold text-primary tracking-tight">PetCare</span>
-                </div>
+                </a>
             </div>
 
             <!-- 2. Campo de Busca (Escondido no celular < 640px | Visível a partir de sm:) -->
@@ -74,64 +79,55 @@
         <!-- CARDS DE MÉTRICAS (RESPONSIVIDADE: 1 col no mobile, 2 col no tablet, 4 col no desktop) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
 
-            <!-- Card 1: Banhos Hoje -->
+            <!-- Card 1: Banhos hoje -->
             <div
-                class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant shadow-sm flex items-center gap-4">
-                <!-- Ícone / Imagem à esquerda -->
+                class="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant flex items-center gap-4">
                 <div
-                    class="w-12 h-12 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center text-xl shrink-0">
-                    🧼
+                    class="w-12 h-12 rounded-md bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+                    <span class="material-icons text-2xl!">water_drop</span>
                 </div>
-                <!-- Rótulo + Número ao lado da imagem -->
-                <div class="flex flex-col">
-                    <p class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Banhos Hoje</p>
-                    <p class="text-headline-sm font-bold text-on-surface">34</p>
+                <div>
+                    <p class="text-body-md font-normal text-on-surface-variant">Banhos hoje</p>
+                    <p class="text-headline-sm font-bold text-on-surface">8</p>
                 </div>
             </div>
 
-            <!-- Card 2: Consultas -->
+            <!-- Card 2: Consultas veterinárias -->
             <div
-                class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant shadow-sm flex items-center gap-4">
-                <!-- Ícone / Imagem à esquerda -->
+                class="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant flex items-center gap-4">
                 <div
-                    class="w-12 h-12 rounded-md bg-secondary-container text-on-secondary-container flex items-center justify-center text-xl shrink-0">
-                    🩺
+                    class="w-12 h-12 rounded-md bg-tertiary-container text-on-tertiary-container flex items-center justify-center shrink-0">
+                    <span class="material-icons text-2xl!">favorite</span>
                 </div>
-                <!-- Rótulo + Número ao lado da imagem -->
-                <div class="flex flex-col">
-                    <p class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Consultas</p>
-                    <p class="text-headline-sm font-bold text-on-surface">12</p>
+                <div>
+                    <p class="text-body-md font-normal text-on-surface-variant">Consultas hoje</p>
+                    <p class="text-headline-sm font-bold text-on-surface">3</p>
                 </div>
             </div>
 
             <!-- Card 3: Vacinações -->
             <div
-                class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant shadow-sm flex items-center gap-4">
-                <!-- Ícone / Imagem à esquerda -->
+                class="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant flex items-center gap-4">
                 <div
-                    class="w-12 h-12 rounded-md bg-tertiary-container text-on-tertiary-container flex items-center justify-center text-xl shrink-0">
-                    💉
+                    class="w-12 h-12 rounded-md bg-success-container text-on-success-container flex items-center justify-center shrink-0">
+                    <span class="material-icons text-2xl!">verified_user</span>
                 </div>
-                <!-- Rótulo + Número ao lado da imagem -->
-                <div class="flex flex-col">
-                    <p class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Vacinações</p>
-                    <p class="text-headline-sm font-bold text-on-surface">8</p>
+                <div>
+                    <p class="text-body-md font-normal text-on-surface-variant">Vacinações</p>
+                    <p class="text-headline-sm font-bold text-on-surface">5</p>
                 </div>
             </div>
 
-            <!-- Card 4: Receita Estimada -->
+            <!-- Card 4: Receita estimada (Usando a cor cinza definida no seu CSS) -->
             <div
-                class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant shadow-sm flex items-center gap-4">
-                <!-- Ícone / Imagem à esquerda -->
+                class="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant flex items-center gap-4">
                 <div
-                    class="w-12 h-12 rounded-md bg-success-container text-on-success-container flex items-center justify-center text-xl shrink-0">
-                    💰
+                    class="w-12 h-12 rounded-md bg-surface-container-highest text-on-surface flex items-center justify-center shrink-0">
+                    <span class="material-icons text-2xl!">attach_money</span>
                 </div>
-                <!-- Rótulo + Número ao lado da imagem -->
-                <div class="flex flex-col">
-                    <p class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Receita Estimada
-                    </p>
-                    <p class="text-headline-sm font-bold text-on-surface">R$ 1.850</p>
+                <div>
+                    <p class="text-body-md font-normal text-on-surface-variant">Receita estimada</p>
+                    <p class="text-headline-sm font-bold text-on-surface">R$ 1.250</p>
                 </div>
             </div>
 
@@ -173,10 +169,11 @@
                             <td class="px-5 py-4 text-body-md font-bold text-on-surface">
                                 <div class="flex items-center gap-3">
                                     <div
-                                        class="w-9 h-9 rounded-full bg-surface-container-high text-on-surface-variant text-label-md font-bold flex items-center justify-center shrink-0">
+                                        class="w-9 h-9 rounded-full bg-surface-container-highest text-on-surface-variant text-label-md font-bold flex items-center justify-center shrink-0">
                                         Th
                                     </div>
-                                    <span><a href="FichaPet.html" class="hover:text-primary transition-colors">Thor</a> <span
+                                    <span><a href="FichaPet.html" class="hover:text-primary transition-colors">Thor</a>
+                                        <span
                                             class="text-label-sm font-normal text-on-surface-variant">(Cão)</span></span>
                                 </div>
                             </td>
@@ -197,7 +194,7 @@
                             <td class="px-5 py-4 text-body-md font-bold text-on-surface">
                                 <div class="flex items-center gap-3">
                                     <div
-                                        class="w-9 h-9 rounded-full bg-surface-container-high text-on-surface-variant text-label-md font-bold flex items-center justify-center shrink-0">
+                                        class="w-9 h-9 rounded-full bg-surface-container-highest text-on-surface-variant text-label-md font-bold flex items-center justify-center shrink-0">
                                         Lu
                                     </div>
                                     <span>Luna <span
@@ -221,7 +218,7 @@
                             <td class="px-5 py-4 text-body-md font-bold text-on-surface">
                                 <div class="flex items-center gap-3">
                                     <div
-                                        class="w-9 h-9 rounded-full bg-surface-container-high text-on-surface-variant text-label-md font-bold flex items-center justify-center shrink-0">
+                                        class="w-9 h-9 rounded-full bg-surface-container-highest text-on-surface-variant text-label-md font-bold flex items-center justify-center shrink-0">
                                         Me
                                     </div>
                                     <span>Mel <span
