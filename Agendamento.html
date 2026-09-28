@@ -5,170 +5,242 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PetCare - Novo Agendamento</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./src/tailwindInput.css" />
 </head>
 
-<body class="min-h-screen bg-app-bg font-sans text-text-body">
+<body class="min-h-screen bg-surface font-sans text-on-surface">
 
-    <!-- NAVBAR -->
-    <header class="bg-card-bg border-b border-border-subtle sticky top-0 z-10">
+    <!-- NAVBAR: mesma barra da Home, copiada igual pra manter o padrão entre as telas -->
+    <header class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-            <a href="index.html" class="flex items-center gap-2">
-                <span class="text-2xl">🐾</span>
-                <span class="font-bold text-xl text-brand-primary tracking-tight">PetCare</span>
-            </a>
 
             <div class="flex items-center gap-3">
-                <div class="text-right hidden md:block">
-                    <p class="text-sm font-semibold text-text-title">Dr. Ana Silva</p>
-                    <p class="text-xs font-normal text-text-muted">Veterinária</p>
+                <button type="button" class="sm:hidden text-primary flex items-center justify-center p-1 -ml-1">
+                    <span class="material-icons text-2xl!">menu</span>
+                </button>
+
+                <a href="Home.html" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
+                    <span
+                        class="w-9 h-9 rounded-md bg-primary text-on-primary flex items-center justify-center shrink-0">
+                        <span class="material-icons text-xl!">pets</span>
+                    </span>
+                    <span class="text-title-lg font-bold text-primary tracking-tight">PetCare</span>
+                </a>
+            </div>
+
+            <div class="flex-1 max-w-md hidden sm:block">
+                <div class="relative flex items-center">
+                    <span class="absolute left-3 text-on-surface-variant text-sm">🔍</span>
+                    <input type="text" placeholder="Buscar pet, tutor ou serviço..."
+                        class="w-full bg-surface text-body-md pl-9 pr-4 py-2 rounded-full border border-outline-variant text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" />
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <div class="text-right hidden lg:block">
+                    <p class="text-label-lg font-semibold text-on-surface">Dr. Ana Silva</p>
+                    <p class="text-label-sm font-normal text-on-surface-variant">Veterinária</p>
                 </div>
                 <div
-                    class="w-10 h-10 rounded-full bg-brand-primary-container text-brand-on-primary-container font-bold flex items-center justify-center border border-brand-primary/20">
+                    class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container text-label-lg font-bold flex items-center justify-center border border-outline-variant/30 shrink-0">
                     AS
                 </div>
             </div>
+
         </div>
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
-    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+    <!-- max-w-3xl dá 768px, que foi a largura máxima do formulário que definimos na AA1 -->
+    <main class="max-w-3xl mx-auto px-6 py-8">
 
-        <!-- Voltar e Título -->
+        <!-- Link de voltar + título da página -->
         <div class="mb-6">
-            <a href="index.html"
-                class="text-xs font-medium text-text-muted hover:text-brand-primary flex items-center gap-1 mb-2 transition-colors">
-                ← Voltar para o Dashboard
+            <a href="Home.html"
+                class="w-fit text-label-lg font-semibold text-primary hover:opacity-80 flex items-center gap-2 mb-3 transition-opacity">
+                <span class="material-icons text-base!">arrow_back</span>
+                Voltar ao dashboard
             </a>
-            <h1 class="text-2xl font-bold text-text-title">Novo Agendamento</h1>
-            <p class="text-sm font-normal text-text-muted">Preencha os dados do pet e do atendimento</p>
+            <h1 class="text-title-lg font-semibold text-on-surface">Novo agendamento</h1>
+            <p class="text-body-md text-on-surface-variant mt-1">Preencha os dados do pet e do serviço</p>
         </div>
 
-        <!-- CARTÃO DO FORMULÁRIO -->
-        <div class="bg-card-bg p-6 sm:p-8 rounded-2xl border border-border-subtle shadow-sm">
-            <form action="index.html" method="GET" class="space-y-6">
+        <!-- Por enquanto o form só volta pra Home. O POST pro json-server entra na AA2 com React -->
+        <form action="Home.html" method="get" class="flex flex-col gap-4">
 
-                <!-- SEÇÃO 1: DADOS DO PET E TUTOR -->
-                <div>
-                    <h2 class="text-base font-semibold text-text-title border-b border-border-subtle pb-2 mb-4">
-                        Informações do Cliente
-                    </h2>
+            <!-- CARD 1: INFORMAÇÕES DO CLIENTE -->
+            <section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="material-icons text-lg! text-primary">pets</span>
+                    <h2 class="text-title-md font-bold text-primary">Informações do cliente</h2>
+                </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- Nome do Pet -->
-                        <div>
-                            <label for="petName" class="block text-xs font-medium text-text-title mb-1.5">
-                                Nome do Pet <span class="text-status-danger">*</span>
-                            </label>
-                            <input type="text" id="petName" name="petName" required placeholder="Ex: Thor, Luna..."
-                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all" />
-                        </div>
+                <!-- Nome do pet e do tutor lado a lado (2 colunas) -->
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label for="nomePet" class="block text-label-lg font-semibold text-on-surface mb-2">
+                            Nome do pet <span class="text-error">*</span>
+                        </label>
+                        <!-- h-12 = 48px, a altura mínima de toque do Material.
+                             No foco a borda fica primary e o ring-1 engrossa ela, parecido com o campo do M3 -->
+                        <input type="text" id="nomePet" name="nomePet" required placeholder="Ex: Paçoca"
+                            class="w-full h-12 px-4 bg-surface-container-lowest text-body-lg text-on-surface rounded-sm border border-outline-variant placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" />
+                    </div>
 
-                        <!-- Especie/Tipo -->
-                        <div>
-                            <label for="petType" class="block text-xs font-medium text-text-title mb-1.5">
-                                Espécie <span class="text-status-danger">*</span>
-                            </label>
-                            <select id="petType" name="petType" required
-                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all">
-                                <option value="" disabled selected>Selecione a espécie...</option>
-                                <option value="dog">Cão 🐶</option>
-                                <option value="cat">Gato 🐱</option>
-                                <option value="bird">Ave 🦜</option>
-                                <option value="other">Outro 🐾</option>
-                            </select>
-                        </div>
-
-                        <!-- Nome do Tutor -->
-                        <div class="sm:col-span-2">
-                            <label for="tutorName" class="block text-xs font-medium text-text-title mb-1.5">
-                                Nome do Tutor <span class="text-status-danger">*</span>
-                            </label>
-                            <input type="text" id="tutorName" name="tutorName" required placeholder="Ex: Carlos Eduardo"
-                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all" />
-                        </div>
+                    <div>
+                        <label for="nomeTutor" class="block text-label-lg font-semibold text-on-surface mb-2">
+                            Nome do tutor <span class="text-error">*</span>
+                        </label>
+                        <input type="text" id="nomeTutor" name="nomeTutor" required placeholder="Ex: Ana Ribeiro"
+                            class="w-full h-12 px-4 bg-surface-container-lowest text-body-lg text-on-surface rounded-sm border border-outline-variant placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" />
                     </div>
                 </div>
 
-                <!-- SEÇÃO 2: DETALHES DO SERVIÇO -->
-                <div>
-                    <h2 class="text-base font-semibold text-text-title border-b border-border-subtle pb-2 mb-4">
-                        Detalhes do Serviço
-                    </h2>
+                <!-- Espécie com chips. Na verdade são radio buttons escondidos dentro de um label,
+                     assim dá pra selecionar só um e funciona sem JavaScript.
+                     sr-only: esconde o radio da tela mas ele continua existindo pro teclado e leitor de tela.
+                     has-checked: muda o estilo do label quando o radio de dentro dele está marcado.
+                     peer / peer-checked: mostra o ícone de check (que vem depois do radio) só quando está marcado. -->
+                <fieldset>
+                    <legend class="text-label-lg font-semibold text-on-surface mb-2">
+                        Espécie <span class="text-error">*</span>
+                    </legend>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <!-- Tipo de Serviço -->
-                        <div class="sm:col-span-3">
-                            <label for="serviceType" class="block text-xs font-medium text-text-title mb-1.5">
-                                Serviço Desejado <span class="text-status-danger">*</span>
-                            </label>
-                            <select id="serviceType" name="serviceType" required
-                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all">
-                                <option value="" disabled selected>Selecione o serviço...</option>
-                                <option value="grooming">Banho & Tosa 🧼</option>
-                                <option value="consultation">Consulta Veterinária 🩺</option>
-                                <option value="vaccine">Vacinação 💉</option>
-                            </select>
-                        </div>
+                    <div class="flex gap-2">
+                        <label
+                            class="h-8 px-3 flex items-center gap-1 rounded-sm border border-outline-variant text-label-lg font-semibold text-on-surface-variant cursor-pointer transition-colors hover:bg-surface has-checked:bg-secondary-container has-checked:border-secondary-container has-checked:text-on-secondary-container has-focus-visible:ring-2 has-focus-visible:ring-primary">
+                            <input type="radio" name="especie" value="cao" required class="peer sr-only" />
+                            <span class="hidden peer-checked:flex">
+                                <span class="material-icons text-lg!">check</span>
+                            </span>
+                            Cão
+                        </label>
 
-                        <!-- Data -->
-                        <div>
-                            <label for="date" class="block text-xs font-medium text-text-title mb-1.5">
-                                Data <span class="text-status-danger">*</span>
-                            </label>
-                            <input type="date" id="date" name="date" required
-                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all" />
-                        </div>
+                        <label
+                            class="h-8 px-3 flex items-center gap-1 rounded-sm border border-outline-variant text-label-lg font-semibold text-on-surface-variant cursor-pointer transition-colors hover:bg-surface has-checked:bg-secondary-container has-checked:border-secondary-container has-checked:text-on-secondary-container has-focus-visible:ring-2 has-focus-visible:ring-primary">
+                            <input type="radio" name="especie" value="gato" class="peer sr-only" />
+                            <span class="hidden peer-checked:flex">
+                                <span class="material-icons text-lg!">check</span>
+                            </span>
+                            Gato
+                        </label>
 
-                        <!-- Horário -->
-                        <div>
-                            <label for="time" class="block text-xs font-medium text-text-title mb-1.5">
-                                Horário <span class="text-status-danger">*</span>
-                            </label>
-                            <input type="time" id="time" name="time" required
-                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all" />
-                        </div>
+                        <label
+                            class="h-8 px-3 flex items-center gap-1 rounded-sm border border-outline-variant text-label-lg font-semibold text-on-surface-variant cursor-pointer transition-colors hover:bg-surface has-checked:bg-secondary-container has-checked:border-secondary-container has-checked:text-on-secondary-container has-focus-visible:ring-2 has-focus-visible:ring-primary">
+                            <input type="radio" name="especie" value="ave" class="peer sr-only" />
+                            <span class="hidden peer-checked:flex">
+                                <span class="material-icons text-lg!">check</span>
+                            </span>
+                            Ave
+                        </label>
 
-                        <!-- Status Inicial -->
-                        <div>
-                            <label for="status" class="block text-xs font-medium text-text-title mb-1.5">
-                                Status Inicial
-                            </label>
-                            <select id="status" name="status"
-                                class="w-full bg-app-bg text-sm px-4 py-2.5 rounded-xl border border-border-subtle text-text-body focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all">
-                                <option value="scheduled" selected>Agendado</option>
-                                <option value="in_progress">Em Andamento</option>
-                            </select>
-                        </div>
+                        <label
+                            class="h-8 px-3 flex items-center gap-1 rounded-sm border border-outline-variant text-label-lg font-semibold text-on-surface-variant cursor-pointer transition-colors hover:bg-surface has-checked:bg-secondary-container has-checked:border-secondary-container has-checked:text-on-secondary-container has-focus-visible:ring-2 has-focus-visible:ring-primary">
+                            <input type="radio" name="especie" value="outro" class="peer sr-only" />
+                            <span class="hidden peer-checked:flex">
+                                <span class="material-icons text-lg!">check</span>
+                            </span>
+                            Outro
+                        </label>
                     </div>
+                </fieldset>
+            </section>
+
+            <!-- CARD 2: DETALHES DO SERVIÇO -->
+            <section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="material-icons text-lg! text-primary">favorite</span>
+                    <h2 class="text-title-md font-bold text-primary">Detalhes do serviço</h2>
                 </div>
 
-                <!-- Observações -->
-                <div>
-                    <label for="notes" class="block text-xs font-medium text-text-title mb-1.5">
-                        Observações Médicas / Especiais (Opcional)
+                <!-- Tipo de serviço -->
+                <div class="mb-4">
+                    <label for="servico" class="block text-label-lg font-semibold text-on-surface mb-2">
+                        Tipo de serviço <span class="text-error">*</span>
                     </label>
-                    <textarea id="notes" name="notes" rows="3"
-                        placeholder="Ex: Alérgico a sabonete com perfume, animal arredio..."
-                        class="w-full bg-app-bg text-sm p-4 rounded-xl border border-border-subtle text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary transition-all resize-none"></textarea>
+                    <!-- appearance-none tira a setinha padrão do navegador, e colocamos
+                         o ícone expand_more por cima, com pointer-events-none pra ele não bloquear o clique -->
+                    <div class="relative">
+                        <select id="servico" name="servico" required
+                            class="w-full h-12 pl-4 pr-10 appearance-none bg-surface-container-lowest text-body-lg text-on-surface rounded-sm border border-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer">
+                            <option value="" disabled selected>Selecione o serviço</option>
+                            <option value="banho_tosa">Banho & Tosa</option>
+                            <option value="consulta">Consulta veterinária</option>
+                            <option value="vacinacao">Vacinação</option>
+                        </select>
+                        <span
+                            class="material-icons absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+                    </div>
                 </div>
 
-                <!-- BOTÕES DE AÇÃO -->
-                <div class="flex items-center justify-end gap-3 pt-4 border-t border-border-subtle">
-                    <a href="index.html"
-                        class="px-5 py-2.5 rounded-xl text-sm font-medium text-text-muted hover:text-text-title hover:bg-app-bg transition-all">
-                        Cancelar
-                    </a>
-                    <button type="submit"
-                        class="bg-brand-primary hover:bg-brand-primary-hover text-brand-on-primary px-6 py-2.5 rounded-xl text-sm font-medium shadow-sm transition-all flex items-center gap-2 cursor-pointer">
-                        Salvar Agendamento
-                    </button>
+                <!-- Data, horário e status em 3 colunas -->
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                    <div>
+                        <label for="data" class="block text-label-lg font-semibold text-on-surface mb-2">
+                            Data <span class="text-error">*</span>
+                        </label>
+                        <input type="date" id="data" name="data" required
+                            class="w-full h-12 px-4 bg-surface-container-lowest text-body-lg text-on-surface rounded-sm border border-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" />
+                    </div>
+
+                    <div>
+                        <label for="horario" class="block text-label-lg font-semibold text-on-surface mb-2">
+                            Horário <span class="text-error">*</span>
+                        </label>
+                        <input type="time" id="horario" name="horario" required
+                            class="w-full h-12 px-4 bg-surface-container-lowest text-body-lg text-on-surface rounded-sm border border-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" />
+                    </div>
+
+                    <div>
+                        <label for="status" class="block text-label-lg font-semibold text-on-surface mb-2">
+                            Status inicial
+                        </label>
+                        <div class="relative">
+                            <select id="status" name="status"
+                                class="w-full h-12 pl-4 pr-10 appearance-none bg-surface-container-lowest text-body-lg text-on-surface rounded-sm border border-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer">
+                                <option value="agendado" selected>Agendado</option>
+                                <option value="em_andamento">Em andamento</option>
+                            </select>
+                            <span
+                                class="material-icons absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+                        </div>
+                    </div>
                 </div>
 
-            </form>
-        </div>
+                <!-- Observações (alergias, comportamento etc.) -->
+                <div>
+                    <label for="observacoes" class="block text-label-lg font-semibold text-on-surface mb-2">
+                        Observações
+                    </label>
+                    <textarea id="observacoes" name="observacoes" rows="3"
+                        placeholder="Alergias, comportamento, cuidados especiais..."
+                        class="w-full p-4 bg-surface-container-lowest text-body-lg text-on-surface rounded-sm border border-outline-variant placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"></textarea>
+                </div>
+            </section>
 
+            <!-- BOTÕES: Cancelar no estilo outlined e Salvar preenchido com a primary,
+                 usando as mesmas classes dos botões da Home e da Ficha do Pet -->
+            <div class="flex justify-end gap-3 pt-2">
+                <a href="Home.html"
+                    class="border border-outline-variant bg-surface-container-lowest hover:bg-surface text-primary px-5 py-2.5 rounded-full text-label-lg font-semibold transition-colors">
+                    Cancelar
+                </a>
+                <button type="submit"
+                    class="bg-primary hover:bg-primary/90 text-on-primary px-5 py-2.5 rounded-full text-label-lg font-semibold transition-colors cursor-pointer">
+                    Salvar agendamento
+                </button>
+            </div>
+
+        </form>
     </main>
+
+    <!-- RODAPÉ -->
+    <footer
+        class="max-w-7xl mx-auto px-4 py-6 text-center text-xs text-on-surface-variant border-t border-outline-variant mt-8">
+        <p>Desenvolvido por <strong class="text-on-surface font-semibold">Luísa Tavares, Laysson Santos e Sérgio
+                Felipe</strong> para a disciplina de Desenvolvimento Web 2</p>
+    </footer>
 
 </body>
 
