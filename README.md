@@ -24,22 +24,10 @@
 
 O **PetCare** é um sistema web projetado para clínicas veterinárias e petshops organizarem sua rotina diária. A ideia surgiu ao observar que a agenda desses estabelecimentos costuma ficar descentralizada entre cadernos e conversas no WhatsApp.
 
-O foco principal da aplicação está em dois pilares:
+O foco principal da aplicação está fundamentado em três pilares:
 1. **Painel de Controle (Dashboard):** Centralização dos números do dia (métricas) e lista de atendimentos em tempo real com status visuais claros.
-2. **Praticidade no Cadastro:** Formulário ágil e acessível tanto no computador da recepção quanto em dispositivos móveis (como no celular da equipe de banho e tosa).
-
----
-
-## 🎨 Identidade Visual & Design System (M3)
-
-A interface foi estruturada rigorosamente com base no **Material Design 3 (M3)** do Google, garantindo consistência, acessibilidade e contraste Nível AAA (fórmula WCAG 2.1 com contraste > 7:1):
-
-* **Cores Semânticas:**
-  * **Cor Semente / Primária (`#00696B` / `#0F8B8D`):** Passa a ideia de saúde e cuidado sem cair no azul hospitalar.
-  * **Terciária (`#FFDCC6` / `#6D390C`):** Tom laranja quente que lembra o lado afetivo dos pets, utilizado nos destaques de Consultas, Alergias e Status "Em Andamento".
-  * **Status Concluído (`#2E9E5B` / `#15512C`):** Cor customizada sem harmonização automática para garantir distinção clara no fluxo.
-* **Tipografia:** Fonte **Nunito** (Google Fonts), com pontas arredondadas que combinam com o universo pet e mantêm alta legibilidade em tabelas densas.
-* **Geometria:** Borda e cantos arredondados (8px para campos/badges, 12px para ícones, 16px para cards e botões no formato *pill*).
+2. **Ficha do Pet (Prontuário e Histórico):** Acesso centralizado às informações do animal, dados do tutor, observações de saúde, vacinas e histórico completo de atendimentos anteriores.
+3. **Praticidade no Cadastro:** Formulário ágil e acessível tanto no computador da recepção quanto em dispositivos móveis (como no celular da equipe de banho e tosa).
 
 ---
 
