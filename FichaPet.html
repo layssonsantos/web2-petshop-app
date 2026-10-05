@@ -11,37 +11,51 @@
 
 <body class="min-h-screen bg-surface font-sans text-on-surface">
 
-    <!-- Topo da tela. No celular a busca some para sobrar espaço. -->
+    <!-- NAVBAR -->
     <header class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-40">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-            <a href="Home.html" class="flex items-center gap-2">
-                <button type="button" class="sm:hidden text-primary flex items-center justify-center -ml-1 mr-1">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+
+            <!-- 1. Logo e Nome do App (Visível em todos os tamanhos) -->
+            <div class="flex items-center gap-3">
+                <!-- Ícone de Menu Hambúrguer (Mobile) -->
+                <button type="button" class="sm:hidden text-primary flex items-center justify-center p-1 -ml-1">
                     <span class="material-icons text-2xl">menu</span>
                 </button>
-                <span class="w-9 h-9 rounded-md bg-primary text-on-primary flex items-center justify-center">
-                    <span class="material-icons text-xl">pets</span>
-                </span>
-                <span class="text-title-md font-bold text-primary">PetCare</span>
-            </a>
 
+                <!-- Logo com Link para Home -->
+                <a href="Home.html" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
+                    <span
+                        class="w-9 h-9 rounded-md bg-primary text-on-primary flex items-center justify-center shrink-0">
+                        <span class="material-icons text-xl">pets</span>
+                    </span>
+                    <span class="text-title-lg font-bold text-primary tracking-tight">PetCare</span>
+                </a>
+            </div>
+
+            <!-- 2. Campo de Busca (Escondido no celular < 640px | Visível a partir de sm:) -->
             <div class="flex-1 max-w-md hidden sm:block">
                 <div class="relative flex items-center">
-                    <span class="material-icons text-base absolute left-3 text-on-surface-variant">search</span>
+                    <span class="absolute left-3 text-on-surface-variant text-sm">🔍</span>
                     <input type="text" placeholder="Buscar pet, tutor ou serviço..."
-                        class="w-full bg-surface-container-highest text-body-md pl-9 pr-4 py-2 rounded-full border border-transparent text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-all" />
+                        class="w-full bg-surface text-body-md pl-9 pr-4 py-2 rounded-full border border-outline-variant text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all" />
                 </div>
             </div>
 
+            <!-- 3. Área de Perfil -->
             <div class="flex items-center gap-3">
+                <!-- Nome e Cargo: Oculto no Celular e Tablet (< 1024px) | Visível apenas no Desktop (lg:) -->
                 <div class="text-right hidden lg:block">
                     <p class="text-label-lg font-semibold text-on-surface">Dr. Ana Silva</p>
                     <p class="text-label-sm font-normal text-on-surface-variant">Veterinária</p>
                 </div>
+
+                <!-- Avatar: Visível em TODOS os dispositivos -->
                 <div
                     class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container text-label-lg font-bold flex items-center justify-center border border-outline-variant/30 shrink-0">
                     AS
                 </div>
             </div>
+
         </div>
     </header>
 
@@ -64,7 +78,7 @@
                 </div>
                 <div>
                     <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
-                        <h2 class="text-title-lg font-semibold text-on-surface">Thor</h2>
+                        <h1 class="text-title-lg font-semibold text-on-surface">Thor</h1>
                         <span
                             class="w-fit inline-flex items-center px-2.5 py-0.5 rounded-sm text-label-sm font-bold bg-secondary-container text-on-secondary-container">
                             Cão
@@ -84,7 +98,7 @@
                     Compartilhar
                 </button>
                 <a href="Agendamento.html"
-                    class="bg-primary hover:bg-primary text-on-primary px-5 py-2.5 rounded-full text-label-lg font-semibold text-center transition-colors flex items-center justify-center gap-2">
+                    class="bg-primary hover:bg-primary/90 text-on-primary px-5 py-2.5 rounded-full text-label-lg font-semibold text-center shadow-sm transition-all duration-200 flex items-center justify-center gap-2">
                     <span class="material-icons text-lg">add</span>
                     Agendar
                 </a>
@@ -217,11 +231,12 @@
         </div>
     </main>
 
-    <!-- Rodapé do projeto. -->
+    <!-- RODAPÉ -->
     <footer
-        class="max-w-5xl mx-auto px-4 py-6 text-center text-xs text-on-surface-variant border-t border-outline-variant mt-8">
+        class="max-w-7xl mx-auto px-4 py-6 text-center text-xs text-on-surface-variant border-t border-outline-variant mt-8">
         <p>Desenvolvido por <strong class="text-on-surface font-semibold">Luísa Tavares, Laysson Santos e Sérgio
-                Felipe</strong> — Disciplina de Desenvolvimento Web 2</p>
+                Felipe</strong> — Disciplina de
+            Desenvolvimento Web 2</p>
     </footer>
 
 </body>
