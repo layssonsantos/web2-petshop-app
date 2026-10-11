@@ -11,7 +11,7 @@
 
 <body class="min-h-screen bg-surface font-sans text-on-surface">
 
-    <!-- NAVBAR: mesma barra da Home, copiada igual pra manter o padrão entre as telas -->
+    <!-- NAVBAR: mesma barra da Home pra manter o padrão entre as telas -->
     <header class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
 
@@ -23,7 +23,7 @@
                 <a href="Home.html" class="flex items-center gap-2 hover:opacity-90 transition-opacity">
                     <span
                         class="w-9 h-9 rounded-md bg-primary text-on-primary flex items-center justify-center shrink-0">
-                        <span class="material-icons text-xl!">pets</span>
+                        <span class="material-icons text-xl">pets</span>
                     </span>
                     <span class="text-title-lg font-bold text-primary tracking-tight">PetCare</span>
                 </a>
@@ -52,38 +52,35 @@
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
-    <!-- max-w-3xl dá 768px, que foi a largura máxima do formulário que definimos na AA1 -->
-    <main class="max-w-3xl mx-auto px-6 py-8">
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
         <!-- Link de voltar + título da página -->
         <div class="mb-6">
             <a href="Home.html"
                 class="w-fit text-label-lg font-semibold text-primary hover:opacity-80 flex items-center gap-2 mb-3 transition-opacity">
-                <span class="material-icons text-base!">arrow_back</span>
+                <span class="material-icons text-base">arrow_back</span>
                 Voltar ao dashboard
             </a>
             <h1 class="text-title-lg font-semibold text-on-surface">Novo agendamento</h1>
             <p class="text-body-md text-on-surface-variant mt-1">Preencha os dados do pet e do serviço</p>
         </div>
 
-        <!-- Por enquanto o form só volta pra Home. O POST pro json-server entra na AA2 com React -->
+        <!-- Por enquanto o form só volta pra Home. -->
         <form action="Home.html" method="get" class="flex flex-col gap-4">
 
             <!-- CARD 1: INFORMAÇÕES DO CLIENTE -->
-            <section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6">
+            <section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 sm:p-6">
                 <div class="flex items-center gap-2 mb-4">
-                    <span class="material-icons text-lg! text-primary">pets</span>
+                    <span class="material-icons text-lg text-primary">pets</span>
                     <h2 class="text-title-md font-bold text-primary">Informações do cliente</h2>
                 </div>
 
-                <!-- Nome do pet e do tutor lado a lado (2 colunas) -->
-                <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                     <div>
                         <label for="nomePet" class="block text-label-lg font-semibold text-on-surface mb-2">
                             Nome do pet <span class="text-error">*</span>
                         </label>
-                        <!-- h-12 = 48px, a altura mínima de toque do Material.
-                             No foco a borda fica primary e o ring-1 engrossa ela, parecido com o campo do M3 -->
+
                         <input type="text" id="nomePet" name="nomePet" required placeholder="Ex: Paçoca"
                             class="w-full h-12 px-4 bg-surface-container-lowest text-body-lg text-on-surface rounded-sm border border-outline-variant placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" />
                     </div>
@@ -97,22 +94,17 @@
                     </div>
                 </div>
 
-                <!-- Espécie com chips. Na verdade são radio buttons escondidos dentro de um label,
-                     assim dá pra selecionar só um e funciona sem JavaScript.
-                     sr-only: esconde o radio da tela mas ele continua existindo pro teclado e leitor de tela.
-                     has-checked: muda o estilo do label quando o radio de dentro dele está marcado.
-                     peer / peer-checked: mostra o ícone de check (que vem depois do radio) só quando está marcado. -->
                 <fieldset>
                     <legend class="text-label-lg font-semibold text-on-surface mb-2">
                         Espécie <span class="text-error">*</span>
                     </legend>
 
-                    <div class="flex gap-2">
+                    <div class="flex flex-wrap gap-2">
                         <label
                             class="h-8 px-3 flex items-center gap-1 rounded-sm border border-outline-variant text-label-lg font-semibold text-on-surface-variant cursor-pointer transition-colors hover:bg-surface has-checked:bg-secondary-container has-checked:border-secondary-container has-checked:text-on-secondary-container has-focus-visible:ring-2 has-focus-visible:ring-primary">
                             <input type="radio" name="especie" value="cao" required class="peer sr-only" />
                             <span class="hidden peer-checked:flex">
-                                <span class="material-icons text-lg!">check</span>
+                                <span class="material-icons text-lg">check</span>
                             </span>
                             Cão
                         </label>
@@ -121,7 +113,7 @@
                             class="h-8 px-3 flex items-center gap-1 rounded-sm border border-outline-variant text-label-lg font-semibold text-on-surface-variant cursor-pointer transition-colors hover:bg-surface has-checked:bg-secondary-container has-checked:border-secondary-container has-checked:text-on-secondary-container has-focus-visible:ring-2 has-focus-visible:ring-primary">
                             <input type="radio" name="especie" value="gato" class="peer sr-only" />
                             <span class="hidden peer-checked:flex">
-                                <span class="material-icons text-lg!">check</span>
+                                <span class="material-icons text-lg">check</span>
                             </span>
                             Gato
                         </label>
@@ -130,7 +122,7 @@
                             class="h-8 px-3 flex items-center gap-1 rounded-sm border border-outline-variant text-label-lg font-semibold text-on-surface-variant cursor-pointer transition-colors hover:bg-surface has-checked:bg-secondary-container has-checked:border-secondary-container has-checked:text-on-secondary-container has-focus-visible:ring-2 has-focus-visible:ring-primary">
                             <input type="radio" name="especie" value="ave" class="peer sr-only" />
                             <span class="hidden peer-checked:flex">
-                                <span class="material-icons text-lg!">check</span>
+                                <span class="material-icons text-lg">check</span>
                             </span>
                             Ave
                         </label>
@@ -139,7 +131,7 @@
                             class="h-8 px-3 flex items-center gap-1 rounded-sm border border-outline-variant text-label-lg font-semibold text-on-surface-variant cursor-pointer transition-colors hover:bg-surface has-checked:bg-secondary-container has-checked:border-secondary-container has-checked:text-on-secondary-container has-focus-visible:ring-2 has-focus-visible:ring-primary">
                             <input type="radio" name="especie" value="outro" class="peer sr-only" />
                             <span class="hidden peer-checked:flex">
-                                <span class="material-icons text-lg!">check</span>
+                                <span class="material-icons text-lg">check</span>
                             </span>
                             Outro
                         </label>
@@ -148,9 +140,9 @@
             </section>
 
             <!-- CARD 2: DETALHES DO SERVIÇO -->
-            <section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-6">
+            <section class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 sm:p-6">
                 <div class="flex items-center gap-2 mb-4">
-                    <span class="material-icons text-lg! text-primary">favorite</span>
+                    <span class="material-icons text-lg text-primary">favorite</span>
                     <h2 class="text-title-md font-bold text-primary">Detalhes do serviço</h2>
                 </div>
 
@@ -159,8 +151,7 @@
                     <label for="servico" class="block text-label-lg font-semibold text-on-surface mb-2">
                         Tipo de serviço <span class="text-error">*</span>
                     </label>
-                    <!-- appearance-none tira a setinha padrão do navegador, e colocamos
-                         o ícone expand_more por cima, com pointer-events-none pra ele não bloquear o clique -->
+
                     <div class="relative">
                         <select id="servico" name="servico" required
                             class="w-full h-12 pl-4 pr-10 appearance-none bg-surface-container-lowest text-body-lg text-on-surface rounded-sm border border-outline-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors cursor-pointer">
@@ -174,8 +165,7 @@
                     </div>
                 </div>
 
-                <!-- Data, horário e status em 3 colunas -->
-                <div class="grid grid-cols-3 gap-4 mb-4">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                     <div>
                         <label for="data" class="block text-label-lg font-semibold text-on-surface mb-2">
                             Data <span class="text-error">*</span>
@@ -219,15 +209,13 @@
                 </div>
             </section>
 
-            <!-- BOTÕES: Cancelar no estilo outlined e Salvar preenchido com a primary,
-                 usando as mesmas classes dos botões da Home e da Ficha do Pet -->
-            <div class="flex justify-end gap-3 pt-2">
+            <div class="flex flex-col sm:flex-row sm:justify-end gap-3 pt-2">
                 <a href="Home.html"
-                    class="border border-outline-variant bg-surface-container-lowest hover:bg-surface text-primary px-5 py-2.5 rounded-full text-label-lg font-semibold transition-colors">
+                    class="border border-outline-variant bg-surface-container-lowest hover:bg-surface text-primary px-5 py-2.5 rounded-full text-label-lg font-semibold text-center transition-colors">
                     Cancelar
                 </a>
                 <button type="submit"
-                    class="bg-primary hover:bg-primary/90 text-on-primary px-5 py-2.5 rounded-full text-label-lg font-semibold transition-colors cursor-pointer">
+                    class="bg-primary hover:bg-primary/90 text-on-primary px-5 py-2.5 rounded-full text-label-lg font-semibold text-center transition-colors cursor-pointer">
                     Salvar agendamento
                 </button>
             </div>
