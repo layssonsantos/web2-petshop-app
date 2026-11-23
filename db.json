@@ -1,0 +1,160 @@
+{
+  "pets": [
+    {
+      "id": 1,
+      "nome": "Thor",
+      "especie": "cao",
+      "tutor": "Carlos Eduardo",
+      "telefone": "(16) 99999-1200",
+      "observacoes": "Alergia a shampoo com perfume forte. Fica ansioso com secador perto do rosto, usar potência baixa.",
+      "clienteDesde": "2024-03"
+    },
+    {
+      "id": 2,
+      "nome": "Luna",
+      "especie": "gato",
+      "tutor": "Mariana Costa",
+      "telefone": "(16) 99812-3344",
+      "observacoes": "",
+      "clienteDesde": "2025-01"
+    },
+    {
+      "id": 3,
+      "nome": "Mel",
+      "especie": "cao",
+      "tutor": "João Pedro",
+      "telefone": "(16) 99701-5566",
+      "observacoes": "",
+      "clienteDesde": "2025-06"
+    },
+    {
+      "id": 4,
+      "nome": "Paçoca",
+      "especie": "cao",
+      "tutor": "Ana Ribeiro",
+      "telefone": "(16) 99812-4471",
+      "observacoes": "Alergia a shampoo com perfume. Fica agitado com o secador.",
+      "clienteDesde": "2025-03"
+    },
+    {
+      "id": 5,
+      "nome": "Kiwi",
+      "especie": "ave",
+      "tutor": "Rafael Costa",
+      "telefone": "(16) 99655-7788",
+      "observacoes": "",
+      "clienteDesde": "2026-02"
+    },
+    {
+      "nome": "Haze",
+      "especie": "gato",
+      "tutor": "Luísa Tavares",
+      "telefone": "",
+      "observacoes": "Filhote 2 meses",
+      "clienteDesde": "2026-11",
+      "id": 6
+    }
+  ],
+  "agendamentos": [
+    {
+      "id": 1,
+      "petId": 1,
+      "servico": "banho_tosa",
+      "data": "2026-11-23",
+      "horario": "14:30",
+      "status": "agendado",
+      "valor": 60,
+      "observacoes": ""
+    },
+    {
+      "id": 2,
+      "petId": 2,
+      "servico": "consulta",
+      "data": "2026-11-23",
+      "horario": "15:15",
+      "status": "em_andamento",
+      "valor": 150,
+      "observacoes": "Retorno da consulta anterior"
+    },
+    {
+      "id": 3,
+      "petId": 3,
+      "servico": "vacinacao",
+      "data": "2026-11-23",
+      "horario": "16:00",
+      "status": "concluido",
+      "valor": 90,
+      "observacoes": "Vacina V10"
+    },
+    {
+      "id": 4,
+      "petId": 4,
+      "servico": "vacinacao",
+      "data": "2026-11-24",
+      "horario": "11:00",
+      "status": "agendado",
+      "valor": 90,
+      "observacoes": ""
+    },
+    {
+      "id": 5,
+      "petId": 5,
+      "servico": "consulta",
+      "data": "2026-11-24",
+      "horario": "14:00",
+      "status": "agendado",
+      "valor": 150,
+      "observacoes": ""
+    },
+    {
+      "id": 6,
+      "petId": 1,
+      "servico": "vacinacao",
+      "data": "2026-09-18",
+      "horario": "10:00",
+      "status": "concluido",
+      "valor": 90,
+      "observacoes": ""
+    },
+    {
+      "id": 7,
+      "petId": 1,
+      "servico": "consulta",
+      "data": "2026-08-02",
+      "horario": "09:30",
+      "status": "concluido",
+      "valor": 150,
+      "observacoes": ""
+    },
+    {
+      "id": 8,
+      "petId": 1,
+      "servico": "banho_tosa",
+      "data": "2026-07-19",
+      "horario": "16:00",
+      "status": "concluido",
+      "valor": 60,
+      "observacoes": ""
+    },
+    {
+      "id": 9,
+      "petId": 4,
+      "servico": "banho_tosa",
+      "data": "2026-11-02",
+      "horario": "09:30",
+      "status": "concluido",
+      "valor": 60,
+      "observacoes": ""
+    },
+    {
+      "petId": 6,
+      "servico": "vacinacao",
+      "data": "2026-11-23",
+      "horario": "12:15",
+      "status": "agendado",
+      "valor": 90,
+      "observacoes": "Filhote 2 meses",
+      "id": 10
+    }
+  ]
+}
